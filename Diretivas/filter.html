@@ -1,0 +1,47 @@
+<html ng-app="myApp">
+<head>
+	<meta charser="utf-8">
+	<title>Filter</title>
+	<script type="text/javascript" src="angularjs-min.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl">
+		<label>Nome completo: </label>
+		<!--
+			o array de usuários será iterado pelo objeto "usuario", exibindo o valor do atributo da expressão {{}}.
+			Todo o conteúdo dos atributos deste objeto(nome e sobreome) serão 
+			atualizados pelo TWDB, através da variável bind "pesq", que está associada ao | filter:pesq 
+		-->
+		<div ng-repeat="usuario in usuarios | filter:pesq">{{usuario.nome +" "+ usuario.sobrenome}}
+		</div>
+
+		<label>Digite um nome: </label>
+		<!-- O conteúdo da pesquisa será inserido na variável bind "pesq" -->
+		<input type="text" ng-model="pesq">
+	</div>
+
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('myCtrl', ['$scope', function($scope){
+			//array JSON de usuários
+			$scope.usuarios = [
+				{
+					"nome": "Isaac",
+					"sobrenome": "Silva"
+				},{
+					"nome": "Jose",
+					"sobrenome": "Alves"
+				},{
+					"nome": "Ana",
+					"sobrenome": "Soares"
+				}, {
+					"nome": "Lucia",
+					"sobrenome": "Soares"
+				}, {
+					"nome":"Ana",
+					"sobrenome": "Trindade"
+				}
+			];
+		}]);
+	</script>
+</body>
+</html>

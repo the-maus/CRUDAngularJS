@@ -1,0 +1,23 @@
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>Ng-Click</title>
+	<script type="text/javascript" src="angularjs-min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<!-- exibe o valor pelo TWDB da variavel contador -->
+	<div>Clicado: {{contador}} vezes!</div>
+	<!-- o evento de click, cada vez que é acionado, executa o o contrúdo da diretiva ng-click -->
+	<button ng-click="contador = contador + 1">Clique!</button>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+
+		app.controller('myCtrl',function($scope){
+			//variável que será aumentada conforme o evento de click for acionado e o conteúdo da diretiva
+			//ng-click ser executado.
+			$scope.contador = 0;
+		});
+	</script>
+</body>
+</html>

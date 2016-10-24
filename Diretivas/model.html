@@ -1,0 +1,40 @@
+<!-- o ng-app define a aplicação que irá ser executada, poderia ser em outras tags (inclusive na mesma do controller),
+	 mas neste caso aplicaremos a mesma no início do arquivo HTML
+-- >
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>Lista</title>
+	<script src="angularjs-min.js"></script>
+</head>
+<body>
+	<!-- diretiva que inicia o controller, todo o código que irá usar os componentes do escopo(model) deste controler
+		 DEVEM estar abaixo do mesmo na hierarquia, neste caso, a div abaixo
+	-->
+	<div ng-controller="myCtrl">
+		<!-- esta expressão só será válida estando abaixo do controller que manipula o $scope(model) 
+		     ela faz o processo de TWDB junto com o atributo de mesmo nome do $scope
+	    -->
+		<label>Seu Nome é: {{nome}}</label> 
+	</br>
+		<input type="text" ng-model="nome">
+	</div>
+
+		
+	<script type="text/javascript">
+		//define a aplicação, o nome como primeiro argumento 
+		//e as dependências poderiam ser injetadas pelo nome neste array que se encontra vazio
+		var app =angular.module('myApp', []);
+
+		//define o controller, o nome é o primeiro argumento, ele recebe serviços injetados, neste caso estamos 
+		//utilizando o $scope pois queremos manipular o mesmo na view pelo recurso TWDB
+		app.controller('myCtrl',function($scope){
+			//variável que é atributo do $scope, seu valor pode ser modificado fora do JS, desde que
+			//respeite a hierarquia da aplicação(myApp) e do controller(myCtrl) a qual o escopo está associado
+			//lembre-se que na aplicação é possível ter vários controllers, por isto a hierarquia é importante
+			$scope.nome = "";
+		});
+
+	</script>
+</body>
+</html>
