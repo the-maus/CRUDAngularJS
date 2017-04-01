@@ -1,6 +1,6 @@
 function CrudController($scope) {
     $scope.usuarios = [
-        {id:0, nome: 'Matheus', idade: 32, endereco: 'Rua avenida, nº 23', filhos:[{nome:'João', idade: 10}, {nome:'Maria', idade: 8}]}
+        {id:0, nome: 'Matheus', idade: 32, endereco: 'Rua avenida, nº 23'}
     ];
 
     $scope.addUsuario = function () {
@@ -43,6 +43,6 @@ function CrudController($scope) {
 		}
 	};
 
-	$scope.usuario = {id:null, nome:'', idade:'', endereco:'', filhos:[]}
+	$scope.usuario = {id:null, nome:'', idade:'', endereco:''}
 }
 
